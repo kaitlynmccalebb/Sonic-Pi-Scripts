@@ -14,6 +14,10 @@ soft="C:/Users/kaitlyn_mccalebb/Downloads/softvocal.wav"
 nas="C:/Users/kaitlyn_mccalebb/Downloads/ruledtheworld.wav"
 lh="C:/Users/kaitlyn_mccalebb/Downloads/ifiruledtheworld.wav"
 slide="C:/Users/kaitlyn_mccalebb/Downloads/slide.wav"
+cyanide="C:/Users/kaitlyn_mccalebb/Downloads/CYANIDE.wav"
+sweet="C:/Users/kaitlyn_mccalebb/Downloads/sweetmelody.wav"
+daniel="C:/Users/kaitlyn_mccalebb/Downloads/danielceaser.wav"
+
 
 x= 1
 sample intro
@@ -37,51 +41,42 @@ end
   x=x-0.15
 end
 x=1
-sample beat, amp: 2
-sleep 29.772
-sample glitch
+bridge =[beat, glitch, pause, nas]
+sample bridge[0], amp: 2
+sleep 30.772
+sample bridge[2]
 sleep 0.2
-sample pause
+sample bridge[1]
 sleep 0.2
-sample nas
+sample bridge[3]
 sleep 7.930634920634921
 live_loop :change do
   sample chill, amp: 2
   sleep 53.843650793650795
 end
 sleep 3
-sample soft, amp: 5
-sleep 9.25045351473923
-sample slide
+sample cyanide, amp: 3
+sleep 11.490566893424036
+sample daniel, amp: 3
+sleep 11.624195011337868
+sample sweet, amp: 3
 live_loop :backvocals do
-  sleep 6
-  sample lh, amp: 0.75
+  8.times do
+    sleep 8
+    sample lh, amp: 0.75
+  end
+  stop
 end
 sleep 60
 2.times do
   sample lh
+  sleep 0.1
 end
+sleep 3
 live_loop :her do
   4.times do
-    sample lh, rate:x
+    sample lh, amp: 0.5, rate:x
     x=x+0.5
   end
+  stop
 end
-
-
-print sample_duration jazz
-
-
-
-=begin
-live_loop :tempo do
-  sample "C:/Users/kaitlyn_mccalebb/Downloads/ashamed2.wav", amp: 0.3
-  sleep 5.3
-end
-sleep 6
-live_loop :bass do
-  use_synth :fm
-end
-play :C
-  play :Ds
-=end
